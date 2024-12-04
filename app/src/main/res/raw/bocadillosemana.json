@@ -1,0 +1,20 @@
+{
+  "bocadillosfrios": {
+    "MONDAY": "Bocadillo de atún con lechuga",
+    "TUESDAY": "Bocadillo de jamón con tomate",
+    "WEDNESDAY": "Bocadillo de queso fresco con espinacas",
+    "THURSDAY": "Bocadillo de pollo con mostaza",
+    "FRIDAY": "Bocadillo de salmón ahumado y aguacate",
+    "SATURDAY": "Bocadillo frío no disponible",
+    "SUNDAY": "Bocadillo frío no disponible"
+  },
+  "bocadilloscalientes": {
+    "MONDAY": "Bocadillo de pollo a la plancha",
+    "TUESDAY": "Bocadillo de carne asada con queso",
+    "WEDNESDAY": "Bocadillo de lomo con pimientos",
+    "THURSDAY": "Bocadillo de hamburguesa con bacon",
+    "FRIDAY": "Bocadillo de ternera con champiñones",
+    "SATURDAY": "Bocadillo caliente no disponible",
+    "SUNDAY": "Bocadillo caliente no disponible"
+  }
+}
