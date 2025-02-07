@@ -8,6 +8,7 @@ import android.widget.GridView
 import android.widget.ImageView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.bitego.fragments.alumno.DashboardAlumno
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 import java.io.InputStreamReader
@@ -17,6 +18,8 @@ class Historico : AppCompatActivity() {
     lateinit var calendario: ImageView
     lateinit var menuUsuario: ImageView
     lateinit var mainPanel: ImageView
+
+    //TODO Binding
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,7 +92,7 @@ class Historico : AppCompatActivity() {
     }
 
     private fun principal(){
-        val intent = Intent(this, Panel::class.java)
+        val intent = Intent(this, DashboardAlumno::class.java)
         startActivity(intent)
     }
 }

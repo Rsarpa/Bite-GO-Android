@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_alumno_graph"
+    app:startDestination="@id/dashboardAlumno2">
+    <fragment
+        android:id="@+id/dashboardAlumno2"
+        android:name="com.example.bitego.fragments.alumno.DashboardAlumno"
+        android:label="fragment_alumno"
+        tools:layout="@layout/fragment_alumno" >
+        <action
+            android:id="@+id/action_dashboardAlumno2_to_calendarioFragment"
+            app:destination="@id/calendarioFragment" />
+        <action
+            android:id="@+id/action_dashboardAlumno2_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_dashboardAlumno2_to_historialFragment"
+            app:destination="@id/historialFragment" />
+        <action
+            android:id="@+id/action_dashboardAlumno2_to_perfilFragment2"
+            app:destination="@id/perfilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendarioFragment"
+        android:name="com.example.bitego.fragments.alumno.CalendarioFragment"
+        android:label="fragment_calendario"
+        tools:layout="@layout/fragment_calendario" />
+    <fragment
+        android:id="@+id/historialFragment"
+        android:name="com.example.bitego.fragments.alumno.HistorialFragment"
+        android:label="fragment_historial"
+        tools:layout="@layout/fragment_historial" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.bitego.fragments.alumno.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+</navigation>
