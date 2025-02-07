@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "194583819565",
+    "firebase_url": "https://app-bocatas-31889-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "app-bocatas-31889",
+    "storage_bucket": "app-bocatas-31889.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194583819565:android:19c4da304cf656adef0fa4",
+        "android_client_info": {
+          "package_name": "com.ej_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrkDmr-imdmEy2rgL4QoxJuA4LKVArFBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194583819565:android:6ab71e663a6de9d9ef0fa4",
+        "android_client_info": {
+          "package_name": "com.example.bitego"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrkDmr-imdmEy2rgL4QoxJuA4LKVArFBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
