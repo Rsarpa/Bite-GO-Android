@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.bitego.fragments.alumno.DashboardAlumno
+import com.example.bitego.fragments.alumno.AlumnoFragment
 
 private lateinit var listView: ListView
 lateinit var calendario: ImageView
@@ -91,7 +91,7 @@ class MenuUser : AppCompatActivity() {
     }
 
     private fun principal(){
-        val intent = Intent(this, DashboardAlumno::class.java)
+        val intent = Intent(this, AlumnoFragment::class.java)
 
         //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)

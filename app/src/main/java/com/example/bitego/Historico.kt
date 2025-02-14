@@ -8,7 +8,7 @@ import android.widget.GridView
 import android.widget.ImageView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.bitego.fragments.alumno.DashboardAlumno
+import com.example.bitego.fragments.alumno.AlumnoFragment
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 import java.io.InputStreamReader
@@ -92,7 +92,7 @@ class Historico : AppCompatActivity() {
     }
 
     private fun principal(){
-        val intent = Intent(this, DashboardAlumno::class.java)
+        val intent = Intent(this, AlumnoFragment::class.java)
         startActivity(intent)
     }
 }

@@ -6,7 +6,7 @@
     app:startDestination="@id/dashboardAlumno2">
     <fragment
         android:id="@+id/dashboardAlumno2"
-        android:name="com.example.bitego.fragments.alumno.DashboardAlumno"
+        android:name="com.example.bitego.fragments.alumno.AlumnoFragment"
         android:label="fragment_alumno"
         tools:layout="@layout/fragment_alumno" >
         <action

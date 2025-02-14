@@ -13,16 +13,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.ViewModelProvider
 import com.example.bitego.databinding.ActivityLoginBinding
-
-import com.example.bitego.fragments.alumno.DashboardAlumno
+import com.example.bitego.viewmodels.UsuarioViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity:AppCompatActivity() {
 
-    lateinit var usernameInput : EditText
-    lateinit var passwordInput : EditText
-    lateinit var loginButton : Button
+    private lateinit var usuarioViewModel: UsuarioViewModel
 
     @SuppressLint("MissingInflatedId")
     private lateinit var binding: ActivityLoginBinding
@@ -33,17 +32,26 @@ class LoginActivity:AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        FirebaseAuth.getInstance().signOut()
 
-        //usernameInput = findViewById(R.id.username)
-        //passwordInput = findViewById(R.id.psswd)
+        usuarioViewModel = ViewModelProvider(this).get(UsuarioViewModel::class.java)
+
+
+        binding.button.setOnClickListener{
+            val username = binding.username.text.toString()
+            val password = binding.psswd.text.toString()
+            usuarioViewModel.verificarUsuario(username, password)
+        }
 
         val opciones = arrayOf("Alumno", "Cocina", "Administrador")
 
+        //establecer adapter del spinner
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinner.adapter = adapter
         var selector = ""
 
+        //evento seleccion Rol
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long){
                 when(opciones[position]){
@@ -60,55 +68,20 @@ class LoginActivity:AppCompatActivity() {
                 }
                 }
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }
         }
 
-        binding.username.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun afterTextChanged(p0: Editable?) {}
-        })
-
-
-        binding.button.setOnClickListener{
-
-            val username = binding.username.text.toString()
-            val password = binding.psswd.text.toString()
-
-            if (username.isEmpty())
-                Toast.makeText(this, "Campo vacío", Toast.LENGTH_LONG).show()
-
-            else if (password.isEmpty())
-                Toast.makeText(this, "Introduce una contraseña", Toast.LENGTH_LONG).show()
-
-            else if (username == "admin" && password == "asdf1234") {
-
-               //val intento = Intent(this, DashboardAlumno::class.java)
-                val intento = Intent(baseContext, MainActivity::class.java)
-                //intento.putExtra("login", username)
-
-
-                if(selector.equals("Administrador")){
-                    startActivity(intento.putExtra("rol","admin"))
-                    finish()
-                }else if (selector.equals("Cocina")) {
-                    intento.putExtra("rol", "cocina")
-                }else if(selector.equals("Alumno")){
-                    intento.putExtra("rol", "alumno")
-                }else{
-                    Toast.makeText(this, "Escoge un rol", Toast.LENGTH_LONG).show()
-                }
-
+        usuarioViewModel.isLogged.observe(this){logueo ->
+            if (logueo){
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("rol", selector)
+                startActivity(intent)
+                finish()
             }else{
-                Toast.makeText(this, "Usuario y Contraseña incorrectos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
-
-            Log.i("Test Credentials", "Username: $username and Password: $password")
         }
     }
 }

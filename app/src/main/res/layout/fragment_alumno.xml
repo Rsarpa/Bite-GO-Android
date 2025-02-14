@@ -4,62 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.alumno.DashboardAlumno">
+    tools:context=".fragments.alumno.AlumnoFragment">
 
-    <View
-        android:id="@+id/viewCalientes2"
-        android:layout_width="wrap_content"
-        android:layout_height="74dp"
-        android:layout_below="@id/caliente"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="217dp"
-        android:layout_marginTop="87dp"
-        android:layout_marginEnd="-3dp"
-        android:layout_marginBottom="351dp"
-        android:background="@drawable/radius_view" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="408dp"
-        android:layout_height="59dp"
-        android:background="#1156D1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"/>
-
-    <View
-        android:id="@+id/viewCalientes"
-        android:layout_width="wrap_content"
-        android:layout_height="73dp"
-        android:layout_below="@id/caliente"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="87dp"
-        android:layout_marginEnd="206dp"
-        android:layout_marginBottom="351dp"
-        android:background="@drawable/radius_view" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="369dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="-87dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="14dp"
-        android:text="Bite&amp;Go"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="70px" />
 
     <TextView
         android:id="@+id/textView3"
@@ -68,9 +14,9 @@
         android:layout_below="@id/view2"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="-3dp"
         android:layout_marginTop="13dp"
-        android:layout_marginEnd="-2dp"
+        android:layout_marginEnd="3dp"
         android:text="Mi panel de control"
         android:textSize="70px" />
 
@@ -78,17 +24,16 @@
         android:id="@+id/frio"
         android:layout_width="189dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view2"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="126dp"
-        android:layout_marginEnd="221dp"
+        android:layout_marginStart="-14dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="236dp"
         android:layout_marginBottom="464dp"
         android:background="@drawable/button_frio"
         android:text="Bocadillo Frío"
         app:backgroundTint="#4CAF50" />
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/caliente"
@@ -103,92 +48,48 @@
         android:backgroundTint="#BC2424"
         android:text="Bocadillo Caliente" />
 
-    <TextView
-        android:id="@+id/parahoyfrio"
-        android:layout_width="188dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="207dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="434dp"
-        android:text="Bocadillo Caliente para Hoy:"
-        android:textColor="#F44336"
-        android:textSize="40px" />
-
-    <TextView
-        android:id="@+id/parahoycaliente"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_below="@id/view2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="209dp"
-        android:layout_marginEnd="234dp"
-        android:layout_marginBottom="434dp"
-        android:text="Bocadillo frio para Hoy:"
-        android:textColor="#03A9F4"
-        android:textSize="40px" />
-
-    <TextView
-        android:id="@+id/friohoy"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_alignStart="@+id/viewCalientes"
-        android:layout_alignTop="@+id/viewCalientes"
-        android:layout_alignEnd="@+id/viewCalientes"
-        android:layout_alignBottom="@+id/viewCalientes"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="21dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/calientehoy"
-        android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_alignStart="@+id/viewCalientes2"
-        android:layout_alignTop="@+id/viewCalientes2"
-        android:layout_alignBottom="@+id/viewCalientes2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="24dp"
-        android:text="TextView" />
 
     <TextView
         android:id="@+id/pedir"
         android:layout_width="207dp"
         android:layout_height="54dp"
-        android:layout_below="@+id/view2"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="102dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="100dp"
         android:text="Pedir para Hoy"
         android:textAlignment="center"
         android:textSize="50px" />
 
-    <View
-        android:id="@+id/view6"
-        android:layout_width="413dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/view2"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBocadillos"
+        android:layout_width="317dp"
+        android:layout_height="173dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="623dp"
-        android:layout_marginEnd="-2dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="241dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="316dp"
+        android:layout_weight="1" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
+        android:text="Confirmar Pedido"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+
+
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_alignTop="@+id/view6"
@@ -238,6 +139,6 @@
             android:layout_weight="1"
             android:clickable="true"
             android:src="@drawable/_077063" />
-    </LinearLayout>
+    </LinearLayout>-->
 
 </RelativeLayout>

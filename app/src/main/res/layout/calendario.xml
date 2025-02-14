@@ -51,15 +51,15 @@
 
     <View
         android:id="@+id/view5"
-        android:layout_width="wrap_content"
-        android:layout_height="365dp"
+        android:layout_width="343dp"
+        android:layout_height="341dp"
         android:layout_below="@+id/view2"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="247dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="39dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/radius_view" />
 
@@ -86,9 +86,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="67dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="67dp"
-        android:layout_marginBottom="604dp"
+        android:layout_marginBottom="614dp"
         android:text="Historial de movimientos"
         android:textAlignment="center"
         android:textSize="50px" />
