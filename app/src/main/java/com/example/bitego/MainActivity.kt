@@ -2,16 +2,11 @@ package com.example.bitego
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.bitego.databinding.ActivityMainBinding
-import com.example.bitego.fragments.admin.DashboardAdmin
-import com.example.bitego.fragments.alumno.AlumnoActivity
-import com.example.bitego.fragments.alumno.AlumnoFragment
-import com.example.bitego.fragments.cocina.DashboardCocina
-import com.example.bitego.viewmodels.UsuarioViewModel
-
 
 class MainActivity:AppCompatActivity() {
 
@@ -26,18 +21,32 @@ class MainActivity:AppCompatActivity() {
         //obtener el valor del intent
         val rol = intent.getStringExtra("rol")
 
-        when(rol){
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_graph_container) as NavHostFragment
+
+        val navController = navHostFragment?.navController
+
+        if (navController != null) {
+            val navGraph = navController.navInflater.inflate(
+                when(rol){
+                    "alumno" -> R.navigation.nav_alumno_graph
+                    "administrador" -> R.navigation.nav_admin_graph
+                    else -> R.navigation.nav_cocina_graph
+                }
+            )
+        }
+
+        /*when(rol){
             "admin" -> {
-                val intent = Intent(this, DashboardAdmin::class.java)
+                val intent = Intent(this, AdminActivity::class.java)
                 startActivity(intent)
                 finish()
             }
             "cocina" -> {
-                val intent = Intent(this, DashboardCocina::class.java)
+                val intent = Intent(this, CocinaActivity::class.java)
             }
             "alumno" -> {
                 val intent = Intent(this, AlumnoActivity::class.java)
             }
-        }
+        }*/
     }
 }

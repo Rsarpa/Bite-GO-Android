@@ -2,22 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/inicio"
-        android:icon="@drawable/casa___copia"
-        android:title="Inicio"/>
-
-    <item
-        android:id="@+id/pedir"
+        android:id="@+id/dashboardAlumno2"
         android:icon="@drawable/checkout"
         android:title="Pedir"/>
 
     <item
-        android:id="@+id/calendario"
+        android:id="@+id/calendarioFragment"
         android:icon="@drawable/historial"
         android:title="Calendario"/>
 
     <item
-        android:id="@+id/menu"
+        android:id="@+id/perfilFragment"
         android:icon="@drawable/_077063"
         android:title="Menu"/>
 </menu>

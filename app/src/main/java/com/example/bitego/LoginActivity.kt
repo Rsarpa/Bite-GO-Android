@@ -40,6 +40,8 @@ class LoginActivity:AppCompatActivity() {
         binding.button.setOnClickListener{
             val username = binding.username.text.toString()
             val password = binding.psswd.text.toString()
+                Log.d("Usuario: ", username)
+                Log.d("Cont", password)
             usuarioViewModel.verificarUsuario(username, password)
         }
 
@@ -53,21 +55,22 @@ class LoginActivity:AppCompatActivity() {
 
         //evento seleccion Rol
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long){
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long){
                 when(opciones[position]){
                     "Alumno" -> {
-                        selector = "Alumno"
+                        selector = "alumno"
                     }
                     "Cocina" -> {
-                        selector = "Cocina"
+                        selector = "cocina"
                     }
                     "Administrador" -> {
-                        selector = "Administrador"
+                        selector = "administrador"
                     }else -> {
                     selector = ""
-                }
+                    }
                 }
             }
+
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }

@@ -28,12 +28,13 @@ class UsuarioViewModel : ViewModel() {
     }*/
 
     fun verificarUsuario(email: String, contrasena: String){
-        auth. signInWithEmailAndPassword(email, contrasena)
+        auth.signInWithEmailAndPassword(email, contrasena)
             .addOnCompleteListener{task ->
                 if (task.isSuccessful){
-                    _isLogged.value = true
+                    _isLogged.postValue(true)
+
                 }else{
-                    _isLogged.value = false
+                    _isLogged.postValue(false)
                     Log.e("UsuarioViewModel", "Error de autenticación: ${task.exception?.message}")
                 }
             }

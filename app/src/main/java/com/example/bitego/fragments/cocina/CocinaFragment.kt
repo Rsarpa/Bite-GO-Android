@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bitego.R
 
-class DashboardCocina : Fragment() {
+class CocinaFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

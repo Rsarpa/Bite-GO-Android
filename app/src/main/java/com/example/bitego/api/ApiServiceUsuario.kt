@@ -6,5 +6,4 @@ import retrofit2.http.GET
 interface ApiServiceUsuario {
     @GET("usuarios.json")
     suspend fun getUsers(): Map<String, Usuario>
-
 }

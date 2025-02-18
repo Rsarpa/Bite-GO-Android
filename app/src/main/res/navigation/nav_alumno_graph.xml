@@ -2,26 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_alumno_graph"
+    android:id="@+id/nav_alumno_graph"
     app:startDestination="@id/dashboardAlumno2">
     <fragment
         android:id="@+id/dashboardAlumno2"
         android:name="com.example.bitego.fragments.alumno.AlumnoFragment"
         android:label="fragment_alumno"
-        tools:layout="@layout/fragment_alumno" >
-        <action
-            android:id="@+id/action_dashboardAlumno2_to_calendarioFragment"
-            app:destination="@id/calendarioFragment" />
-        <action
-            android:id="@+id/action_dashboardAlumno2_to_perfilFragment"
-            app:destination="@id/perfilFragment" />
-        <action
-            android:id="@+id/action_dashboardAlumno2_to_historialFragment"
-            app:destination="@id/historialFragment" />
-        <action
-            android:id="@+id/action_dashboardAlumno2_to_perfilFragment2"
-            app:destination="@id/perfilFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_alumno" />
     <fragment
         android:id="@+id/calendarioFragment"
         android:name="com.example.bitego.fragments.alumno.CalendarioFragment"
