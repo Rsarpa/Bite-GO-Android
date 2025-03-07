@@ -3,12 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_alumno_graph"
-    app:startDestination="@id/dashboardAlumno2">
+    app:startDestination="@id/fragment_alumno">
     <fragment
-        android:id="@+id/dashboardAlumno2"
+        android:id="@+id/fragment_alumno"
         android:name="com.example.bitego.fragments.alumno.AlumnoFragment"
         android:label="fragment_alumno"
-        tools:layout="@layout/fragment_alumno" />
+        tools:layout="@layout/fragment_alumno">
+    <!-- Acción para navegar a ResumenFragment -->
+    <action
+        android:id="@+id/action_alumno_to_resumen"
+        app:destination="@id/resumenFragment" />
+        <action
+            android:id="@+id/action_fragment_alumno_to_resumenFragment"
+            app:destination="@id/resumenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/calendarioFragment"
         android:name="com.example.bitego.fragments.alumno.CalendarioFragment"
@@ -23,5 +31,23 @@
         android:id="@+id/perfilFragment"
         android:name="com.example.bitego.fragments.alumno.PerfilFragment"
         android:label="fragment_perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_editarUsuarioFragment"
+            app:destination="@id/editarUsuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resumenFragment"
+        android:name="com.example.bitego.fragments.alumno.ResumenFragment"
+        android:label="fragment_resumen"
+        tools:layout="@layout/fragment_resumen" >
+        <action
+            android:id="@+id/action_resumenFragment_to_fragment_alumno"
+            app:destination="@id/fragment_alumno" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarUsuarioFragment"
+        android:name="com.example.bitego.fragments.alumno.EditarUsuarioFragment"
+        android:label="fragment_editar_usuario"
+        tools:layout="@layout/fragment_editar_usuario" />
 </navigation>

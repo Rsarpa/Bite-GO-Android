@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/padd"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="12dp"
-  >
+    android:layout_margin="8dp"
+    android:background="@android:color/white"
+    app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="105dp"
-        android:padding="16dp">
+        android:layout_height="171dp"
+        android:padding="12dp">
 
         <!-- Nombre del Bocadillo -->
+
+        <!-- Día asociado (Etiqueta superior derecha) -->
+
+        <!-- Tipo -->
+
         <TextView
             android:id="@+id/tvNombreBocadillo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_width="175dp"
+            android:layout_height="71dp"
+            android:layout_marginBottom="40dp"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -26,33 +33,50 @@
             tools:ignore="MissingConstraints"
             tools:text="Bocadillo de Jamón" />
 
-        <!-- Tipo -->
         <TextView
-            android:id="@+id/tvTipo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="-1dp"
-            tools:text="Caliente" />
+            android:id="@+id/tvDia"
+            android:layout_width="148dp"
+            android:layout_height="34dp"
+            android:layout_margin="6dp"
+            android:layout_marginEnd="104dp"
+            android:fontFamily="sans-serif-medium"
+            android:padding="6dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvCoste"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.944" />
 
         <TextView
-            android:id="@+id/separador"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="156dp"
+            android:id="@+id/tvTipo"
+            android:layout_width="111dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="192dp"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteY="0dp"
-            tools:text="/" />
+            tools:text="Caliente" />
 
+        <TextView
+            android:id="@+id/separador"
+            android:layout_width="13dp"
+            android:layout_height="39dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvTipo"
+            app:layout_constraintStart_toEndOf="@+id/tvNombreBocadillo"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="1dp"
+            tools:text=" /" />
+
+        <!-- Icono del bocadillo -->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="58dp"
@@ -60,25 +84,39 @@
             android:background="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.959"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
+        <!--Alegenos-->
 
-        <!-- Coste del Pedido -->
+        <!--Coste-->
+
+        <TextView
+            android:id="@+id/tvAlergenos"
+            android:layout_width="136dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/tvCoste"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="244dp"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/imageView"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNombreBocadillo"
             tools:text="4.50€" />

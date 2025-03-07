@@ -12,4 +12,20 @@ object RetrofitConnect {
             .build()
             .create(ApiServiceUsuario::class.java)
     }
+
+    val apiBocadillo: ApiServiceBocadillo by lazy {
+        Retrofit.Builder()
+            .baseUrl(URL_BASE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiServiceBocadillo::class.java)
+    }
+
+    val apiPedido: ApiServicePedido by lazy {
+        Retrofit.Builder()
+            .baseUrl(URL_BASE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiServicePedido::class.java)
+    }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.alumno.ResumenFragment">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:text="Tus pedidos para Hoy"
+        android:textAlignment="center"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/imgBocadillo"
+        android:layout_width="110dp"
+        android:layout_height="99dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="7dp"
+        android:contentDescription="Imagen del pedido" />
+
+    <TextView
+        android:id="@+id/nombreBocadillo"
+        android:layout_width="197dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/textView7"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/imgBocadillo"
+        android:paddingTop="8dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/costeBocadillo"
+        android:layout_width="78dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/nombreBocadillo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="13dp"
+        android:layout_toEndOf="@+id/imgBocadillo"
+        android:paddingTop="4dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCancelarPedido"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nombreBocadillo"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/costeBocadillo"
+        android:backgroundTint="@color/rojo"
+        android:text="Cancelar Pedido"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btVolver"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:layout_marginStart="-110dp"
+        android:layout_marginTop="209dp"
+        android:layout_toEndOf="@+id/costeBocadillo"
+        android:backgroundTint="@color/principal"
+        android:text="Volver"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

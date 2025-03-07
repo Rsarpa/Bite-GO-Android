@@ -20,33 +20,20 @@ class MainActivity:AppCompatActivity() {
 
         //obtener el valor del intent
         val rol = intent.getStringExtra("rol")
-
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_graph_container) as NavHostFragment
 
-        val navController = navHostFragment?.navController
+        val navController = navHostFragment.navController
 
+        val botonNav = binding.bottonNav
+        botonNav.setupWithNavController(navController)
+        //TODO controlar botonNav para admin
+        var inflater = navController?.navInflater;
         if (navController != null) {
-            val navGraph = navController.navInflater.inflate(
-                when(rol){
-                    "alumno" -> R.navigation.nav_alumno_graph
-                    "administrador" -> R.navigation.nav_admin_graph
-                    else -> R.navigation.nav_cocina_graph
-                }
-            )
+            when (rol) {
+                 "alumno" -> inflater!!.inflate(R.navigation.nav_alumno_graph)
+                 "administrador" -> inflater!!.inflate(R.navigation.nav_admin_graph)
+                 else -> inflater!!.inflate(R.navigation.nav_admin_graph)
+            }
         }
-
-        /*when(rol){
-            "admin" -> {
-                val intent = Intent(this, AdminActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-            "cocina" -> {
-                val intent = Intent(this, CocinaActivity::class.java)
-            }
-            "alumno" -> {
-                val intent = Intent(this, AlumnoActivity::class.java)
-            }
-        }*/
     }
 }

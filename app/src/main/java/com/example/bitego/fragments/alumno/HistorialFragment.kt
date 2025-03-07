@@ -5,56 +5,62 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bitego.R
+import com.example.bitego.adapter.PedidoAdapter
+import com.example.bitego.databinding.FragmentHistorialBinding
+import com.example.bitego.viewmodels.PedidoViewModel
+import com.example.bitego.viewmodels.UsuarioViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HistorialFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HistorialFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentHistorialBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val pedidoViewModel: PedidoViewModel by viewModels()
+    private val usuarioViewModel: UsuarioViewModel by viewModels()
+
+    private lateinit var pedidoAdapter: PedidoAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_historial, container, false)
+    ): View {
+        _binding = FragmentHistorialBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HistorialFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HistorialFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        pedidoAdapter = PedidoAdapter(emptyList())
+        binding.rwPedidos.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = pedidoAdapter
+        }
+
+        usuarioViewModel.usuarioAutenticado.observe(viewLifecycleOwner) { usuario ->
+            usuario?.let {
+                it.uId?.let { it1 -> pedidoViewModel.obtenerPedidosAlumno(it1) }
             }
+        }
+
+        pedidoViewModel.pedidosAlumno.observe(viewLifecycleOwner) { pedidos ->
+            pedidoAdapter.actualizarLista(pedidos)
+        }
+
+        pedidoViewModel.totalBocadillos.observe(viewLifecycleOwner) { total ->
+            binding.totalBocadillos.text = total.toString()
+        }
+
+        pedidoViewModel.totalGastado.observe(viewLifecycleOwner) { total ->
+            binding.totalGastado.text = "%.2f€".format(total)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

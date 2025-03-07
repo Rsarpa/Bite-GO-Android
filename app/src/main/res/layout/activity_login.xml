@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/captura_de_pantalla_2024_10_15_174233">
+    android:background="#C5ABEB">
 
 
     <ImageView
@@ -33,10 +33,69 @@
         android:background="@drawable/radius_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.827" />
+        app:layout_constraintVertical_bias="0.742" />
+
+    <EditText
+        android:id="@+id/psswd"
+        android:layout_width="239dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginEnd="73dp"
+        android:ems="10"
+        android:hint=" Contraseña"
+        android:inputType="textPassword"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.469" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="239dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint=" Nombre de usuario"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <!--TODO boton google-->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="221dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_item"
+        android:text="Iniciar Sesión"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.886" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="233dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.625" />
 
     <TextView
         android:id="@+id/Login"
@@ -51,84 +110,22 @@
         android:textSize="90px"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:hint=" Nombre de usuario"
-        android:inputType="text"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.303" />
-
-    <EditText
-        android:id="@+id/psswd"
-        android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginEnd="73dp"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:hint=" Contraseña"
-        android:inputType="textPassword"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.833"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.469" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        android:layout_width="142dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginEnd="117dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/button_item"
-        android:text="Iniciar Sesión"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.852" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="49dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="8dp"
         android:text="¿No tienes cuenta? Registrate"
         android:textSize="50px"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="233dp"
-        android:layout_height="33dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

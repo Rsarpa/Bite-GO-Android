@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="6dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imgBocadillo"
+            android:layout_width="360dp"
+            android:layout_height="86dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/sandwich" />
+
+        <TextView
+            android:id="@+id/txtDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/principal"
+            tools:text="Lunes" />
+
+        <TextView
+            android:id="@+id/txtNombreAlumno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="Bocadillo de Jamón" />
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:text="Jamón serrano con tomate y aceite de oliva." />
+
+        <TextView
+            android:id="@+id/txtTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_orange_dark"
+            tools:text="Tipo: Caliente" />
+
+        <TextView
+            android:id="@+id/txtAlergenos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
+            tools:text="Alérgenos: Gluten, Lactosa" />
+
+        <TextView
+            android:id="@+id/txtCoste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="2.50€" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

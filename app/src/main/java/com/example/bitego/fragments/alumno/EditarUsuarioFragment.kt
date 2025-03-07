@@ -1,4 +1,4 @@
-package com.example.bitego.fragments.cocina
+package com.example.bitego.fragments.alumno
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bitego.R
 
-class CocinaFragment : Fragment() {
+class EditarUsuarioFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cocina, container, false)
+        return inflater.inflate(R.layout.fragment_editar_usuario, container, false)
     }
-
 }

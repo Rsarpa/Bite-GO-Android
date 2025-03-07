@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/dashboardAlumno2"
+        android:id="@+id/fragment_alumno"
         android:icon="@drawable/checkout"
         android:title="Pedir"/>
 
     <item
         android:id="@+id/calendarioFragment"
-        android:icon="@drawable/historial"
+        android:icon="@drawable/calendario"
         android:title="Calendario"/>
+
+    <item
+        android:id="@+id/historialFragment"
+        android:icon="@drawable/historial"
+        android:title="Historial"/>
 
     <item
         android:id="@+id/perfilFragment"

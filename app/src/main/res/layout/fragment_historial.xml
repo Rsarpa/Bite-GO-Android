@@ -1,14 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.alumno.HistorialFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- RecyclerView de Pedidos -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView4"
+        android:layout_width="259dp"
+        android:layout_height="75dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="80dp"
+        android:text="Historial de Pedidos"
+        android:textAlignment="center"
+        android:textSize="20dp" />
 
-</FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="264dp"
+        android:layout_height="219dp"
+        android:layout_above="@+id/rwPedidos"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="-100dp"
+        android:background="#67C5ABEB"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Total de Bocadillos -->
+        <TextView
+            android:id="@+id/totalBocadillos"
+            android:layout_width="164dp"
+            android:layout_height="18dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:text="Total de Bocadillos Pedidos:"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
+
+
+        <!-- Total Gastado -->
+        <TextView
+            android:id="@+id/txtBocadillosCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="18dp"
+            android:layout_toEndOf="@+id/totalBocadillos"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalGastado"
+            android:layout_width="135dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/totalBocadillos"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="83dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:text="Total Gastado:"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rwPedidos"
+        android:layout_width="386dp"
+        android:layout_height="374dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="94dp"
+        android:layout_weight="1"
+        android:paddingBottom="16dp" />
+
+</RelativeLayout>

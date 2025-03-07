@@ -9,44 +9,15 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="238dp"
-        android:layout_height="59dp"
+        android:layout_width="402dp"
+        android:layout_height="57dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="10dp"
         android:text="Mi panel de control"
         android:textSize="70px" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/frio"
-        android:layout_width="189dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="-14dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="236dp"
-        android:layout_marginBottom="464dp"
-        android:background="@drawable/button_frio"
-        android:text="Bocadillo Frío"
-        app:backgroundTint="#4CAF50" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/caliente"
-        android:layout_width="209dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="199dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="1dp"
-        android:backgroundTint="#BC2424"
-        android:text="Bocadillo Caliente" />
-
 
     <TextView
         android:id="@+id/pedir"
@@ -62,82 +33,49 @@
         android:textAlignment="center"
         android:textSize="50px" />
 
+    <!-- Cuadro que se muestra después de hacer el pedido -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerBocadillos"
-        android:layout_width="317dp"
-        android:layout_height="173dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pedir"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="241dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+
         android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/btnConfirmar"
-        android:layout_width="63dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/black"
-        android:text="Confirmar Pedido"
-        android:textColor="@android:color/white"
-        android:visibility="gone" />
-
-
-
-    <!--<LinearLayout
+    <LinearLayout
+        android:id="@+id/cuadroPedido"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_alignTop="@+id/view6"
-        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recyclerBocadillos"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="invisible">
 
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="-15dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:gravity="bottom"
-        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvPedidoRealizado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Tienes un pedido para hoy"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/home"
-            android:layout_width="46dp"
-            android:layout_height="47dp"
-            android:layout_alignTop="@+id/view6"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:src="@drawable/casa___copia" />
-
-        <ImageView
-            android:id="@+id/programacion"
-            android:layout_width="53dp"
-            android:layout_height="47dp"
-            android:layout_alignTop="@+id/view6"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:src="@drawable/historial" />
-
-        <ImageView
-            android:id="@+id/menu"
-            android:layout_width="46dp"
-            android:layout_height="47dp"
-            android:layout_alignTop="@+id/view6"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:src="@drawable/_077063" />
-    </LinearLayout>-->
+        <Button
+            android:id="@+id/btnVerPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/principal"
+            android:text="Ver Pedido"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 </RelativeLayout>

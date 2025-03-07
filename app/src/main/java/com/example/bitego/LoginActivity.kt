@@ -45,7 +45,7 @@ class LoginActivity:AppCompatActivity() {
             usuarioViewModel.verificarUsuario(username, password)
         }
 
-        val opciones = arrayOf("Alumno", "Cocina", "Administrador")
+        val opciones = arrayOf("Alumno", "Administrador")
 
         //establecer adapter del spinner
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
@@ -59,9 +59,6 @@ class LoginActivity:AppCompatActivity() {
                 when(opciones[position]){
                     "Alumno" -> {
                         selector = "alumno"
-                    }
-                    "Cocina" -> {
-                        selector = "cocina"
                     }
                     "Administrador" -> {
                         selector = "administrador"
