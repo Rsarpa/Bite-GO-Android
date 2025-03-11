@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".fragments.alumno.PerfilFragment">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvTitulo"
@@ -15,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="77dp"
         android:text="Modificar Bocadillo"
         android:textAlignment="center"
@@ -40,6 +39,7 @@
         android:layout_marginTop="10dp"
         android:background="@android:color/white"
         android:hint="Descripción"
+        android:maxLength="60"
         android:padding="10dp" />
 
     <EditText
@@ -102,20 +102,22 @@
 
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="match_parent"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etAlergenos"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="@color/principal"
         android:text="Guardar Cambios"
         android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnVolver"
-        android:layout_width="match_parent"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnGuardar"
-        android:layout_marginTop="12dp"
+        android:layout_below="@+id/etAlergenos"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/btnGuardar"
         android:backgroundTint="@color/black"
         android:text="Volver"
         android:textColor="@android:color/white" />

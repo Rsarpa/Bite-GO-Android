@@ -142,7 +142,7 @@ class UsuarioViewModel : ViewModel() {
     }
 
     //metodo para actualizar datos de un usuario
-    /*fun updateUsuario(usuarioActualizado: Usuario, onResult: (Boolean) -> Unit) {
+    fun updateUsuarioById(usuarioActualizado: Usuario, onResult: (Boolean) -> Unit) {
         val id = usuarioActualizado.uId
 
         if (id.isNullOrBlank()) {
@@ -170,9 +170,9 @@ class UsuarioViewModel : ViewModel() {
                 onResult(false)
             }
         }
-    }*/
+    }
 
-    fun updateUsuario(nombre: String, apellidos: String, curso: String, email: String, password: String) {
+    fun updateMiUsuario(nombre: String, apellidos: String, curso: String, email: String, password: String) {
         val usuario = usuarioAutenticado.value
 
         if (usuario == null || usuarioIdFirebase == null) {
@@ -222,8 +222,8 @@ class UsuarioViewModel : ViewModel() {
             try {
                 val response = RetrofitConnect.apiUsuario.deleteUsuario(id)
                 if (response.isSuccessful) {
-                    _mensaje.postValue("Usuario eliminado correctamente")
-                    fetchUsuarios() // 🔄 Actualizar lista después de eliminar
+                    _mensaje.postValue("Usuario eliminado con éxito")
+                    fetchUsuarios()
                     onResult(true)
                 } else {
                     _errorMensaje.postValue("Error al eliminar usuario")

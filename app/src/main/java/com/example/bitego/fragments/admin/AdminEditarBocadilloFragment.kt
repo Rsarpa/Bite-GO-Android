@@ -42,6 +42,20 @@ class AdminEditarBocadilloFragment : Fragment() {
         binding.etDescripcion.setText(bocadillo.descripcion)
         binding.etCoste.setText(bocadillo.coste.toString())
 
+        //mostrar mensajes
+        bocadilloViewModel.mensaje.observe(viewLifecycleOwner) { mensaje ->
+            if (!mensaje.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        //mostrar error msg
+        bocadilloViewModel.errorMessage.observe(viewLifecycleOwner) { error ->
+            if (!error.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+            }
+        }
+
         // Configurar los spinners
         setupSpinner(binding.spTipo, arrayOf("Frío", "Caliente"), bocadillo.tipo)
         setupSpinner(binding.spDia, arrayOf("Lunes", "Martes", "Miércoles", "Jueves", "Viernes"), bocadillo.dia)
@@ -54,6 +68,7 @@ class AdminEditarBocadilloFragment : Fragment() {
             findNavController().navigate(R.id.action_adminEditarBocadilloFragment_to_dashboardAdminBocadillo)
         }
     }
+
     private fun setupSpinner(spinner: Spinner, items: Array<String>, selectedValue: String) {
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, items)
         spinner.adapter = adapter
@@ -79,10 +94,13 @@ class AdminEditarBocadilloFragment : Fragment() {
 
         val bocadilloActualizado = Bocadillo(nombre = nombre, descripcion = descripcion, tipo = tipo, coste = coste, alergenos = alerngenoEdit, dia=dia)
 
+
         args.bocadillo.id?.let {
             bocadilloViewModel.actualizarBocadillo(it, bocadilloActualizado) { success ->
                 if (success) {
                     Toast.makeText(requireContext(), "Bocadillo actualizado", Toast.LENGTH_SHORT).show()
+                    //volver atrás
+                    findNavController().navigate(R.id.action_adminEditarBocadilloFragment_to_dashboardAdminBocadillo)
                 } else {
                     Toast.makeText(requireContext(), "Error al actualizar", Toast.LENGTH_SHORT).show()
                 }

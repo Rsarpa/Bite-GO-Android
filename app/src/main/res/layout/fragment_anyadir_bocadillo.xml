@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".fragments.admin.AnyadirBocadilloFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tvTitulo"
+        android:layout_width="219dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="77dp"
+        android:text="Nuevo Bocadillo"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/etBocadillo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitulo"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/white"
+        android:hint="Nombre Bocadillo"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/etDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etBocadillo"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:hint="Descripción"
+        android:maxLength="60"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/etCoste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Precio"
+        android:layout_below="@id/etDescripcion"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="106dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/spTipo"
+        android:layout_marginTop="6dp"
+        android:text="Día Asociado:"
+        android:textSize="18dp" />
+
+    <Spinner
+        android:id="@+id/spDia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spTipo"
+        android:layout_marginTop="41dp"
+        android:background="@android:color/white"
+        android:hint="Tipo"
+        android:inputType="textPassword"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="106dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/etCoste"
+        android:layout_marginTop="9dp"
+        android:text="Tipo:"
+        android:textSize="18dp" />
+
+    <Spinner
+        android:id="@+id/spTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etCoste"
+        android:layout_marginTop="41dp"
+        android:background="@android:color/white"
+        android:hint="Tipo"
+        android:inputType="textPassword"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/etAlergenos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spDia"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/white"
+        android:hint="Alergenos"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAlergenos"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/principal"
+        android:text="Guardar Cambios"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAlergenos"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/btnGuardar"
+        android:backgroundTint="@color/black"
+        android:text="Volver"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

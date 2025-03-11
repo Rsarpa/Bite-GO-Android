@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".fragments.alumno.PerfilFragment">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvTitulo"
@@ -15,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="101dp"
         android:text="Modificar Usuario"
         android:textAlignment="center"
@@ -76,7 +75,7 @@
 
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="match_parent"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:text="Guardar Cambios"
         android:textColor="@android:color/white"
@@ -86,10 +85,12 @@
 
     <Button
         android:id="@+id/btnVolver"
-        android:layout_width="match_parent"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnGuardar"
-        android:layout_marginTop="12dp"
+        android:layout_below="@+id/etCurso"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/btnGuardar"
         android:backgroundTint="@color/black"
         android:text="Volver"
         android:textColor="@android:color/white" />

@@ -22,6 +22,9 @@ class BocadilloViewModel : ViewModel() {
     private val _bocadillosCrud = MutableLiveData<List<Bocadillo>>()
     val bocadillosCrud: LiveData<List<Bocadillo>> get() = _bocadillosCrud
 
+    private val _mensaje = MutableLiveData<String>()
+    val mensaje: LiveData<String> get() = _mensaje
+
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> get() = _errorMessage
 
@@ -73,8 +76,10 @@ class BocadilloViewModel : ViewModel() {
                 val response = RetrofitConnect.apiBocadillo.createBocadillo(bocadillo) //Decimos que id es null para que no lo cree
 
                 if (response.isSuccessful) {
+                    _mensaje.postValue("Bocadillo creado correctamente")
                     onResult(true) //Insercción realizada con exito
                 }else {
+                    _mensaje.postValue("El bocadillo no puedo ser creado")
                     onResult(false) //Error al insertar
                 }
             } catch (e: Exception) {
@@ -88,7 +93,11 @@ class BocadilloViewModel : ViewModel() {
             try {
                 val response = RetrofitConnect.apiBocadillo.updateBocadillo(id, bocadillo)
                 onResult(response.isSuccessful)
+                _mensaje.postValue("Bocadillo actualizado correctamente")
+                //refrescar lista
+                fetchBocadillos()
             } catch (e: Exception) {
+                _errorMessage.postValue("Error al actualizar bocadillo: ${e.message}")
                 onResult(false)
             }
         }
@@ -117,8 +126,15 @@ class BocadilloViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = RetrofitConnect.apiBocadillo.deleteBocadillo(id)
-                onResult(response.isSuccessful)
+                if (response.isSuccessful){
+                    _mensaje.postValue("Bocadillo eliminado con éxito")
+                    onResult(response.isSuccessful)
+                }else{
+                    _errorMessage.postValue("Error al eliminar el bocadillo")
+                    onResult(false)
+                }
             } catch (e: Exception) {
+                _errorMessage.value = "Error al obtener bocadillos CRUD: ${e.message}"
                 onResult(false)
             }
         }

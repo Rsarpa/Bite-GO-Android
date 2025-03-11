@@ -36,7 +36,7 @@ class AnyadirUsuarioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Lista de roles
-        val roles = listOf("Alumno", "Cocina", "Admin")
+        val roles = listOf("Alumno", "Admin")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, roles)
         binding.spRol.adapter = adapter
 

@@ -47,17 +47,6 @@ class AdminEditarUsuarioFragment : Fragment() {
             val nuevaPassword = binding.etPassword.text.toString().trim()
             val nuevoCurso = binding.etCurso.text.toString().trim()
 
-
-            if (nuevoNombre.isEmpty() || nuevoCorreo.isEmpty()) {
-                Toast.makeText(requireContext(), "Los campos Nombre y Correo son obligatorios", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-
-            usuarioViewModel.updateUsuario(nombre = nuevoNombre, apellidos = nuevosApellidos, email = nuevoCorreo, password = nuevaPassword, curso = nuevoCurso,)
-            findNavController().navigate(R.id.action_adminEditarUsuarioFragment_to_dashboardAdminAlumno)
-
-
             //mostrar mensajes
             usuarioViewModel.mensaje.observe(viewLifecycleOwner) { mensaje ->
                 if (!mensaje.isNullOrEmpty()) {
@@ -69,6 +58,27 @@ class AdminEditarUsuarioFragment : Fragment() {
             usuarioViewModel.errorMensaje.observe(viewLifecycleOwner) { error ->
                 if (!error.isNullOrEmpty()) {
                     Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+
+            if (nuevoNombre.isEmpty() || nuevoCorreo.isEmpty()) {
+                Toast.makeText(requireContext(), "Los campos Nombre y Correo son obligatorios", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val usuarioActualizado = usuario.copy(
+                nombre = nuevoNombre,
+                apellidos = nuevosApellidos,
+                email = nuevoCorreo,
+                psswd = nuevaPassword,
+                curso = nuevoCurso
+            )
+
+            //llamar al metodo para actualizar usuario
+            usuarioViewModel.updateUsuarioById(usuarioActualizado){ actualizar ->
+                if(actualizar){
+                    findNavController().navigate(R.id.action_adminEditarUsuarioFragment_to_dashboardAdminAlumno)
                 }
             }
         }

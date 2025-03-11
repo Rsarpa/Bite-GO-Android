@@ -53,6 +53,14 @@ class AdminAlumnoFragment : Fragment() {
             }
         }
 
+        //mostrar mensajes
+        usuarioViewModel.mensaje.observe(viewLifecycleOwner) { mensaje ->
+            if (!mensaje.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        //mostrar error msg
         usuarioViewModel.errorMensaje.observe(viewLifecycleOwner) { mensaje ->
             Toast.makeText(requireContext(), mensaje, Toast.LENGTH_LONG).show()
         }
@@ -68,23 +76,16 @@ class AdminAlumnoFragment : Fragment() {
     }
 
     private fun irAEditarUsuario(usuario: Usuario) {
-       // val action = AdminAlumnoFragmentDirections.actionDashboardAdminAlumnoToAdminEditarUsuarioFragment(usuario)
-        //findNavController().navigate(action)
+        val action = AdminAlumnoFragmentDirections.actionDashboardAdminAlumnoToAdminEditarUsuarioFragment(usuario)
+        findNavController().navigate(action)
     }
 
 
     private fun eliminarUsuario(usuario: Usuario) {
-
         usuarioViewModel.deleteUsuario(usuario.uId!!) { exito ->
             if (exito) {
-                Toast.makeText(requireContext(), "Usuario eliminado", Toast.LENGTH_SHORT).show()
                 usuarioViewModel.fetchUsuarios()
-            } else {
-                Toast.makeText(requireContext(), "Error al eliminar usuario", Toast.LENGTH_SHORT)
-                    .show()
             }
-
         }
     }
-
 }

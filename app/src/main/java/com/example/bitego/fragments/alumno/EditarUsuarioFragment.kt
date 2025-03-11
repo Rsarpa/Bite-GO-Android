@@ -62,8 +62,12 @@ class EditarUsuarioFragment : Fragment() {
             val nuevaContrasenya = binding.etPassword.text.toString().trim()
 
             //metodo del vm para actualizar el usuario
-            usuarioViewModel.updateUsuario(nombre = nuevoNombre, apellidos = nuevosApellidos, curso = nuevoCurso, email = email, password = nuevaContrasenya)
+            usuarioViewModel.updateMiUsuario(nombre = nuevoNombre, apellidos = nuevosApellidos, curso = nuevoCurso, email = email, password = nuevaContrasenya)
             //volver atrás
+            findNavController().navigate(R.id.action_editarUsuarioFragment_to_perfilFragment)
+        }
+
+        binding.btnVolver.setOnClickListener {
             findNavController().navigate(R.id.action_editarUsuarioFragment_to_perfilFragment)
         }
     }

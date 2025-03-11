@@ -56,6 +56,14 @@ class AdminBocadilloFragment : Fragment() {
             }
         }
 
+        //mostrar mensajes
+        bocadilloViewModel.mensaje.observe(viewLifecycleOwner) { mensaje ->
+            if (!mensaje.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        //mostrar error msg
         bocadilloViewModel.errorMessage.observe(viewLifecycleOwner) { mensaje ->
             Toast.makeText(requireContext(), mensaje, Toast.LENGTH_LONG).show()
         }
@@ -80,10 +88,7 @@ class AdminBocadilloFragment : Fragment() {
         bocadillo.id?.let {
             bocadilloViewModel.eliminarBocadillo(it) { exito ->
                 if (exito) {
-                    Toast.makeText(requireContext(), "Bocadillo eliminado", Toast.LENGTH_SHORT).show()
                     bocadilloViewModel.fetchBocadillosCrud()
-                } else {
-                    Toast.makeText(requireContext(), "Error al eliminar bocadillo", Toast.LENGTH_SHORT).show()
                 }
             }
         }

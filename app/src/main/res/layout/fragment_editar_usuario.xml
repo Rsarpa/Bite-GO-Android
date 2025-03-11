@@ -8,18 +8,18 @@
     tools:context=".fragments.alumno.PerfilFragment">
 
 
-    <!-- Imagen de perfil -->
+    <!-- Campo de Nombre -->
 
     <TextView
         android:id="@+id/tvTitulo"
-        android:layout_width="wrap_content"
+        android:layout_width="279dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="101dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="95dp"
         android:text="Datos del usuario"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -27,23 +27,25 @@
 
     <ImageView
         android:id="@+id/ivProfileImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="105dp"
+        android:layout_height="90dp"
         android:layout_below="@+id/tvTitulo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="149dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/_077063"
         android:scaleType="centerCrop" />
 
-    <!-- Campo de Nombre -->
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre"
         android:layout_below="@id/ivProfileImage"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:background="@android:color/white"
         android:padding="10dp" />
 
@@ -97,12 +99,24 @@
     <!-- Botón Guardar -->
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="match_parent"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:text="Guardar Cambios"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/principal"
         android:layout_below="@id/etCurso"
         android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCurso"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/btnGuardar"
+        android:backgroundTint="@color/black"
+        android:text="Volver"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
