@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.admin.AdminAlumnoFragment">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="23dp"
+        android:text="Gestión de Bocadillos"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <!-- RecyclerView para los usuarios -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBocadillos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAnyadir"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="12dp"
+        android:layout_marginBottom="236dp" />
+
+    <!-- Floating Action Button para añadir usuarios -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAnyadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="104dp"
+        android:contentDescription="Agregar Bocadillo"
+        android:src="@drawable/sandwich_trasparent"
+        app:backgroundTint="@color/white"
+        app:tint="@color/black" />
+
+</RelativeLayout>

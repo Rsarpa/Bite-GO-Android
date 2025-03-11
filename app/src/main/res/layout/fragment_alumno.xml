@@ -40,10 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/pedir"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-
-        android:layout_weight="1" />
+        android:layout_margin="12dp"/>
 
     <LinearLayout
         android:id="@+id/cuadroPedido"
@@ -51,9 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/recyclerBocadillos"
         android:layout_marginTop="30dp"
-        android:layout_weight="1"
         android:background="@android:color/darker_gray"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="16dp"
         android:visibility="invisible">
 

@@ -8,7 +8,6 @@ data class Bocadillo(
     val tipo: String = "",
     val descripcion: String = "",
     val coste: Double = 0.0,
-    val icono: String = "",
     val dia: String = "",
     val alergenos: Map<String, String> = emptyMap() // Cambiado a no nullable
 ) : Serializable {

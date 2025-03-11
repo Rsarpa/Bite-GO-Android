@@ -22,6 +22,14 @@
             tools:src="@drawable/sandwich" />
 
         <TextView
+            android:id="@+id/txtId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="15dp"
+            android:text="#Id" />
+
+        <TextView
             android:id="@+id/txtDia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,5 +87,32 @@
             android:textStyle="bold"
             tools:text="2.50€" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="345dp"
+            android:layout_height="37dp">
+
+            <ImageView
+                android:id="@+id/btnEliminar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="Eliminar usuario"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/delete_button" />
+
+            <ImageView
+                android:id="@+id/btnEditar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="Editar usuario"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnEliminar"
+                app:srcCompat="@drawable/edit_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

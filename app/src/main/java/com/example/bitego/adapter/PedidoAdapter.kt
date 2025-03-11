@@ -42,10 +42,7 @@ class PedidoAdapter(private var pedidos: List<Pedido>):RecyclerView.Adapter<Pedi
         holder.coste.text = "%.2f€".format(pedido.precio)
 
         // Cargar icono de bocadillo
-        val iconoId = holder.img.context.resources.getIdentifier(
-            pedido.bocadillo.icono, "drawable", holder.itemView.context.packageName
-        )
-        holder.img.setImageResource(if (iconoId != 0) iconoId else R.drawable.sandwich)
+        holder.img.setImageResource(R.drawable.sandwich)
     }
 
     class BocadilloViewHolder(view: View) : RecyclerView.ViewHolder(view){

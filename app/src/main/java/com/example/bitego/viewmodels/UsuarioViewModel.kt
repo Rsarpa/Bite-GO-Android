@@ -18,9 +18,6 @@ class UsuarioViewModel : ViewModel() {
     private val _usuarioAutenticado = MutableLiveData<Usuario?>()
     val usuarioAutenticado: LiveData<Usuario?> get() = _usuarioAutenticado
 
-    private val _rolUsuario = MutableLiveData<String?>()
-    val rolUsuario: LiveData<String?> get() = _rolUsuario
-
     private val _mensaje = MutableLiveData<String>()
     val mensaje: LiveData<String> get() = _mensaje
 
@@ -31,8 +28,7 @@ class UsuarioViewModel : ViewModel() {
     val errorMensaje: LiveData<String> get() = _errorMensaje
 
     //guardar id del usuario
-    private val _usuarioIdFirebase = MutableLiveData<String?>()
-    val usuarioIdFirebase: LiveData<String?> get() = _usuarioIdFirebase
+    var usuarioIdFirebase: String? = null
 
     //inicializar la instancia en Firebase del usuario
     init {
@@ -81,18 +77,13 @@ class UsuarioViewModel : ViewModel() {
                     val usuarioEncontrado = usuarioEntry.value.copy(uId = usuarioId)
 
                     _usuarioAutenticado.value = usuarioEncontrado
-                    _rolUsuario.value = usuarioEncontrado.rol?.lowercase()
-                    _mensaje.value = "Usuario encontrado: ${usuarioEncontrado.nombre}"
 
                     //Guardar ID de Firebase
-                    _usuarioIdFirebase.postValue(usuarioId)
+                    usuarioIdFirebase = usuarioId
                     Log.d("UsuarioViewModel", "ID de usuario obtenido: $usuarioId")
-                } else {
-                    _errorMensaje.value = "No se encontró un usuario con el email: $email"
-                    Log.e("UsuarioViewModel", "Usuario no encontrado en la API")
                 }
             } catch (e: Exception) {
-                _errorMensaje.value = "Error al obtener usuario: ${e.message}"
+                _errorMensaje.value = "Error de la base de datos al obtener usuario: ${e.message}"
                 Log.e("UsuarioViewModel", "Error en fetchUsuarioByEmail: ${e.message}")
             }
         }
@@ -104,10 +95,12 @@ class UsuarioViewModel : ViewModel() {
             .addOnCompleteListener{task ->
                 if (task.isSuccessful){
                     _isLogged.postValue(true)
+                    fetchUsuarioByEmail(email)  // Cargar datos del usuario autenticado
 
                 }else{
                     _isLogged.postValue(false)
                     Log.e("UsuarioViewModel", "Error de autenticación: ${task.exception?.message}")
+                    _errorMensaje.value = "Nombre de usuario o Contraseña incorrectos"
                 }
             }
     }
@@ -131,6 +124,7 @@ class UsuarioViewModel : ViewModel() {
         }
     }
 
+    //registrar un nuevo usuario en Authentication
     fun registrarUsuario(email: String, password: String, callback: (Boolean, String?) -> Unit) {
         val auth = FirebaseAuth.getInstance()
 
@@ -148,7 +142,7 @@ class UsuarioViewModel : ViewModel() {
     }
 
     //metodo para actualizar datos de un usuario
-    fun updateUsuario(usuarioActualizado: Usuario, onResult: (Boolean) -> Unit) {
+    /*fun updateUsuario(usuarioActualizado: Usuario, onResult: (Boolean) -> Unit) {
         val id = usuarioActualizado.uId
 
         if (id.isNullOrBlank()) {
@@ -162,23 +156,23 @@ class UsuarioViewModel : ViewModel() {
                     "nombre" to usuarioActualizado.nombre,
                     "apellidos" to usuarioActualizado.apellidos,
                     "email" to usuarioActualizado.email,
-                    "password" to usuarioActualizado.psswd,
+                    "psswrd" to usuarioActualizado.psswd,
                     "curso" to usuarioActualizado.curso,
                     "rol" to usuarioActualizado.rol
                 )
 
                 RetrofitConnect.apiUsuario.updateUsuario(id, usuarioMap)
                 _mensaje.postValue("Usuario actualizado correctamente")
-                fetchUsuarios() // 🔄 Refrescar lista
+                fetchUsuarios() //Refrescar lista
                 onResult(true)
             } catch (e: Exception) {
                 _errorMensaje.postValue("Error al actualizar usuario: ${e.message}")
                 onResult(false)
             }
         }
-    }
+    }*/
 
-    fun updateUsuarioPerfil(nombre: String, apellidos: String, curso: String) {
+    fun updateUsuario(nombre: String, apellidos: String, curso: String, email: String, password: String) {
         val usuario = usuarioAutenticado.value
 
         if (usuario == null || usuarioIdFirebase == null) {
@@ -191,13 +185,16 @@ class UsuarioViewModel : ViewModel() {
                 val usuarioActualizado = usuario.copy(
                     nombre = nombre,
                     apellidos = apellidos,
-                    curso = curso
+                    curso = curso,
+                    email = email,
+                    psswd = password
                 )
 
                 val usuarioMap = mapOf(
                     "nombre" to usuarioActualizado.nombre,
                     "apellidos" to usuarioActualizado.apellidos,
                     "email" to usuarioActualizado.email,
+                    "passwd" to usuarioActualizado.psswd,
                     "curso" to usuarioActualizado.curso,
                     "rol" to usuarioActualizado.rol
                 )

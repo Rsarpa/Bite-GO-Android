@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dashboardAdminAlumno"
+        android:icon="@drawable/_077063"
+        android:title="Alumnos"/>
+
+    <item
+        android:id="@+id/dashboardAdminBocadillo"
+        android:icon="@drawable/sandwich_trasparent"
+        android:title="Bocadillos"/>
+
+    <item
+        android:id="@+id/salir"
+        android:icon="@drawable/close_session"
+        android:title="Salir"/>
+</menu>

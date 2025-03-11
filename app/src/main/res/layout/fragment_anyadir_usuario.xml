@@ -20,34 +20,24 @@
         android:layout_marginStart="99dp"
         android:layout_marginTop="49dp"
         android:layout_marginEnd="101dp"
-        android:text="Datos del usuario"
+        android:text="Nuevo Usuario"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/ivProfileImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_below="@+id/tvTitulo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/_077063"
-        android:scaleType="centerCrop" />
-
     <!-- Campo de Nombre -->
+
+    <!-- Campo de Apellidos -->
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre"
-        android:layout_below="@id/ivProfileImage"
-        android:layout_marginTop="16dp"
+        android:layout_below="@+id/tvTitulo"
+        android:layout_marginTop="25dp"
         android:background="@android:color/white"
+        android:hint="Nombre"
         android:padding="10dp" />
 
-    <!-- Campo de Apellidos -->
     <EditText
         android:id="@+id/etApellidos"
         android:layout_width="match_parent"
@@ -68,8 +58,7 @@
         android:layout_marginTop="10dp"
         android:background="@android:color/white"
         android:padding="10dp"
-        android:inputType="textEmailAddress"
-        android:enabled="false" /> <!-- No editable -->
+        android:inputType="textEmailAddress"/>
 
     <!-- Campo de Contraseña -->
     <EditText
@@ -94,15 +83,35 @@
         android:background="@android:color/white"
         android:padding="10dp" />
 
+    <!-- Botón Volver -->
+    <Spinner
+        android:id="@+id/spRol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCurso"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="10dp" />
+
     <!-- Botón Guardar -->
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar Cambios"
-        android:textColor="@android:color/white"
+        android:layout_below="@+id/spRol"
+        android:layout_marginTop="23dp"
         android:backgroundTint="@color/principal"
-        android:layout_below="@id/etCurso"
-        android:layout_marginTop="20dp" />
+        android:text="Guardar Cambios"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnGuardar"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/black"
+        android:text="Volver"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

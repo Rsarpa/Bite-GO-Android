@@ -49,5 +49,9 @@
         android:id="@+id/editarUsuarioFragment"
         android:name="com.example.bitego.fragments.alumno.EditarUsuarioFragment"
         android:label="fragment_editar_usuario"
-        tools:layout="@layout/fragment_editar_usuario" />
+        tools:layout="@layout/fragment_editar_usuario" >
+        <action
+            android:id="@+id/action_editarUsuarioFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+    </fragment>
 </navigation>

@@ -30,7 +30,7 @@ class CalendarioAdapter(
         Log.d("CalendarioAdapter", "Bocadillo en posición $position: $bocadillo")
 
         with(holder.binding) {
-            txtNombreAlumno.text = bocadillo.nombre
+            txtNombreBocadillo.text = bocadillo.nombre
             txtDescripcion.text = bocadillo.descripcion
             txtAlergenos.text = "Alergenos: ${bocadillo.nombresAlergenos?.joinToString(", ") ?: "Ninguno"}"
             txtCoste.text = "${bocadillo.coste}€"

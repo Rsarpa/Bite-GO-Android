@@ -40,47 +40,33 @@ class LoginActivity:AppCompatActivity() {
         binding.button.setOnClickListener{
             val username = binding.username.text.toString()
             val password = binding.psswd.text.toString()
-                Log.d("Usuario: ", username)
-                Log.d("Cont", password)
+
+            //comprobar que los campos no estén vacios
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Por favor, rellene los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             usuarioViewModel.verificarUsuario(username, password)
         }
 
-        val opciones = arrayOf("Alumno", "Administrador")
+        //metodo de autenticación desde el ViewModel
+        usuarioViewModel.usuarioAutenticado.observe(this){usuario ->
+            if (usuario != null ){
+                val rol = usuario.rol?.lowercase() ?: "alumno" //definir rol
 
-        //establecer adapter del spinner
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinner.adapter = adapter
-        var selector = ""
-
-        //evento seleccion Rol
-        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long){
-                when(opciones[position]){
-                    "Alumno" -> {
-                        selector = "alumno"
-                    }
-                    "Administrador" -> {
-                        selector = "administrador"
-                    }else -> {
-                    selector = ""
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+                //llamar al MainActivity pasandole el rol
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("rol", rol)
+                startActivity(intent)
+                finish()
             }
         }
 
-        usuarioViewModel.isLogged.observe(this){logueo ->
-            if (logueo){
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("rol", selector)
-                startActivity(intent)
-                finish()
-            }else{
-                Toast.makeText(this, "Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show()
+        //lanzar mensajes de error del ViewModel
+        usuarioViewModel.errorMensaje.observe(this) { error ->
+            if (!error.isNullOrEmpty()) {
+                Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -26,21 +26,24 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="387dp"
-        android:layout_height="436dp"
+        android:layout_width="366dp"
+        android:layout_height="406dp"
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/radius_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742" />
+        app:layout_constraintVertical_bias="0.67" />
+
+    <!--TODO boton google-->
 
     <EditText
         android:id="@+id/psswd"
         android:layout_width="239dp"
-        android:layout_height="53dp"
+        android:layout_height="50dp"
         android:layout_marginStart="92dp"
         android:layout_marginEnd="73dp"
         android:ems="10"
@@ -49,10 +52,10 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintHorizontal_bias="0.717"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.469" />
+        app:layout_constraintVertical_bias="0.557" />
 
     <EditText
         android:id="@+id/username"
@@ -64,12 +67,9 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.303" />
-
-    <!--TODO boton google-->
+        app:layout_constraintVertical_bias="0.378" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
@@ -86,16 +86,6 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:layout_constraintVertical_bias="0.886" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="233dp"
-        android:layout_height="33dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.625" />
 
     <TextView
         android:id="@+id/Login"

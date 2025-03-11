@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bitego.R
 import com.example.bitego.adapter.BocadilloDia
-import com.example.bitego.databinding.ControlPanelBinding
 import com.example.bitego.databinding.FragmentAlumnoBinding
 import com.example.bitego.modelos.Bocadillo
 import com.example.bitego.util.ConfirmarEvento
@@ -57,33 +56,34 @@ class AlumnoFragment : Fragment() {
             // Mostrar el cuadro de confirmación cuando se selecciona un bocadillo
             ConfirmarEvento(onConfirm = {
                 // Observar el usuarioId una sola vez
-                usuarioViewModel.usuarioIdFirebase.observe(viewLifecycleOwner, Observer { usuarioId ->
-                    if (usuarioId.isNullOrBlank()) {
-                        Log.d("UsuarioId", "ID de usuario null")
-                        return@Observer
-                    } else {
-                        // Aquí, cuando el usuario confirma el pedido, comprobamos si ya tiene un pedido
-                        pedidoViewModel.obtenerPedidosAlumno(usuarioId)
+                val idUsuario = usuarioViewModel.usuarioIdFirebase
 
-                        // Observar el pedido del día solo en este punto
-                        pedidoViewModel.pedidoDelDia.observe(viewLifecycleOwner, Observer { pedido ->
-                            if (pedido != null) {
-                                // Si el usuario ya tiene un pedido, mostramos un mensaje
-                                Toast.makeText(requireContext(), "Ya tienes un pedido para hoy.", Toast.LENGTH_SHORT).show()
-                            } else {
-                                // Si no tiene un pedido, realizamos el nuevo pedido
-                                pedidoViewModel.realizarPedido(usuarioId, bocadillo)
-                                binding.cuadroPedido.visibility = View.VISIBLE
+                if (idUsuario.isNullOrBlank()) {
+                    Log.d("UsuarioId", "ID de usuario null")
+                    return@ConfirmarEvento
+                } else {
+                    // Aquí, cuando el usuario confirma el pedido, comprobamos si ya tiene un pedido
+                    pedidoViewModel.obtenerPedidosAlumno(idUsuario)
 
-                                // Mostrar mensaje de éxito y actualizar la UI
-                                Toast.makeText(requireContext(), "Pedido realizado con éxito", Toast.LENGTH_SHORT).show()
+                    // Observar el pedido del día solo en este punto
+                    pedidoViewModel.pedidoDelDia.observe(viewLifecycleOwner, Observer { pedido ->
+                        if (pedido != null) {
+                            // Si el usuario ya tiene un pedido, mostramos un mensaje
+                            Toast.makeText(requireContext(), "Ya tienes un pedido para hoy.", Toast.LENGTH_SHORT).show()
+                        } else {
+                            // Si no tiene un pedido, realizamos el nuevo pedido
+                            pedidoViewModel.realizarPedido(idUsuario, bocadillo)
+                            binding.cuadroPedido.visibility = View.VISIBLE
 
-                                // Mostrar cuadro de pedido
-                                binding.cuadroPedido.visibility = View.VISIBLE
-                            }
-                        })
-                    }
-                })
+                            // Mostrar mensaje de éxito y actualizar la UI
+                            Toast.makeText(requireContext(), "Pedido realizado con éxito", Toast.LENGTH_SHORT).show()
+
+                            // Mostrar cuadro de pedido
+                            binding.cuadroPedido.visibility = View.VISIBLE
+                        }
+                    })
+                }
+
             }).show(parentFragmentManager, "ConfirmDialog")
         }
 
